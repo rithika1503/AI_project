@@ -43,7 +43,7 @@ const AStarGame = () => {
     const isInPath = path.some(([px, py]) => px === x && py === y);
     const isVisited = visited.some(([vx, vy]) => vx === x && vy === y);
     
-    let baseClass = 'relative transition-all duration-300 border border-gray-700/20 cursor-pointer hover:scale-105 ';
+    let baseClass = 'relative transition-all duration-300 border border-gray-400/40 cursor-pointer hover:scale-105 ';
     let innerContent = null;
 
     if (cellType === CELL_TYPES.START || (isInPath && x === start.x && y === start.y)) {
@@ -60,10 +60,10 @@ const AStarGame = () => {
     } else if (isVisited && cellType !== CELL_TYPES.WALL) {
       baseClass += 'bg-gradient-to-br from-yellow-300 to-yellow-400';
     } else if (cellType === CELL_TYPES.WALL) {
-      baseClass += 'bg-gradient-to-br from-gray-700 to-gray-900 shadow-inner';
-      innerContent = <div className="absolute inset-0 bg-gray-800/50"></div>;
+      baseClass += 'bg-gradient-to-br from-gray-900 to-black shadow-inner border-2 border-gray-700';
+      innerContent = <div className="absolute inset-0 bg-black/50"></div>;
     } else {
-      baseClass += 'bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800';
+      baseClass += 'bg-gradient-to-br from-slate-600 to-slate-700 hover:from-slate-500 hover:to-slate-600';
     }
 
     return { className: baseClass, content: innerContent };
@@ -222,7 +222,7 @@ const AStarGame = () => {
       {/* Header */}
       <div className="relative z-10 text-center mb-6">
         <h1 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-2 tracking-tight drop-shadow-lg">
-          Route Craft
+          A* PATHFINDER
         </h1>
         <p className="text-cyan-300 text-lg font-semibold flex items-center justify-center gap-2">
           <Sparkles size={20} /> AI Maze Solver Challenge <Sparkles size={20} />
@@ -363,8 +363,7 @@ const AStarGame = () => {
           </div>
         </div>
 
-        {/* Speed Control */}
-        
+
       </div>
 
       {/* Game Grid */}
@@ -414,8 +413,8 @@ const AStarGame = () => {
             <span><strong className="text-red-400">Red:</strong> End Point</span>
           </div>
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg shadow-lg"></div>
-            <span><strong className="text-gray-400">Black:</strong> Walls/Obstacles</span>
+            <div className="w-8 h-8 bg-gradient-to-br from-gray-900 to-black rounded-lg shadow-lg border-2 border-gray-700"></div>
+            <span><strong className="text-gray-300">Black:</strong> Walls/Obstacles</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-gradient-to-br from-yellow-300 to-yellow-400 rounded-lg shadow-lg"></div>
@@ -426,8 +425,8 @@ const AStarGame = () => {
             <span><strong className="text-blue-400">Blue:</strong> Shortest Path</span>
           </div>
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg shadow-lg"></div>
-            <span><strong className="text-slate-400">Dark:</strong> Empty Space</span>
+            <div className="w-8 h-8 bg-gradient-to-br from-slate-600 to-slate-700 rounded-lg shadow-lg"></div>
+            <span><strong className="text-slate-400">Gray:</strong> Empty Space</span>
           </div>
         </div>
         <div className="mt-4 p-4 bg-cyan-500/10 rounded-xl border border-cyan-500/30">
