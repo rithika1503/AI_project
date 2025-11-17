@@ -14,14 +14,15 @@ Interactive maze solver using the A* algorithm. Create custom mazes and watch th
 
 ### Backend Setup
 
-
 cd backend
+
 python -m venv venv
+
 source venv/bin/activate  
+
 pip install requirements.txt
 
-# Run server
-python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000 
 
 
 Backend will run at "http://localhost:8000"
