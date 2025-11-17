@@ -6,10 +6,10 @@ from astar import AStar
 
 app = FastAPI(title="A* Pathfinding API")
 
-# CORS middleware to allow frontend connections
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify your frontend URL
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
